@@ -1,5 +1,4 @@
-# WebSocket
-WebSocket Parser Library
+# WebSocket Parser Library
 * linux에서만 테스트 했음.
 * c++17 사용함.
 
