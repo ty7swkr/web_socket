@@ -73,6 +73,7 @@ public:
 };
 */
 std::vector<uint8_t> binary;
+............
 
 WebSocket ping = WebSocket::make_ping();
 WebSocket req_txt = WebSocket::make("blablablablabla", true); // for client
