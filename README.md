@@ -76,10 +76,10 @@ std::vector<uint8_t> binary;
 
 WebSocket ping = WebSocket::make_ping();
 WebSocket req_txt = WebSocket::make("blablablablabla", true); // for client
-WebSocket req_bin = WebSocket::make(binary.data(), binary.size()); // for server
+WebSocket res_bin = WebSocket::make(binary.data(), binary.size()); // for server
 
 WebSocket req_txt2 = WebSocket::make(WebSocket::OPCODE_TEXT, "Hello WebSocket", true, true); // for client
-WebSocket req_bin2 = WebSocket::make(WebSocket::OPCODE_BINARY, binary.data(), binary.size(), false, true); // for server
+WebSocket res_bin2 = WebSocket::make(WebSocket::OPCODE_BINARY, binary.data(), binary.size(), false, true); // for server
 
 // Sec-Accept-Key 구하기
 std::string sec_accept_key = WebSocket::sec_accept_key("oJ+k6v1xAAAEoKTq/XEAAA==" /*Sec-WebSocket-Key*/);
