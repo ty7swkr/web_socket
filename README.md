@@ -43,7 +43,7 @@ WebSocket 패킷 생성
 
 ............
 ...........
-// masking 변수는 클라이언트의 경우 true로, 서버의 경우 false로 보낸다.
+// masking 변수는 클라이언트의 경우 true로, 서버의 경우 false로 해야한다.
 /*
 class WebSocket
 {
@@ -72,14 +72,14 @@ public:
   ...
 };
 */
+std::vector<uint8_t> binary;
 
 WebSocket ping = WebSocket::make_ping();
-WebSocket request1 = WebSocket::make("blablablablabla", true); // for client
-WebSocket request2 = WebSocket::make("albalskglaksjrr"); // for server
+WebSocket req_txt = WebSocket::make("blablablablabla", true); // for client
+WebSocket req_bin = WebSocket::make(binary.data(), binary.size()); // for server
 
-std::vector<uint8_t> binary;
-WebSocket request3 = WebSocket::make(WebSocket::OPCODE_TEXT, "Hello WebSocket", true, true); // for client
-WebSocket request4 = WebSocket::make(WebSocket::OPCODE_BINARY, binary.data(), binary.size(), false, true); // for server
+WebSocket req_txt2 = WebSocket::make(WebSocket::OPCODE_TEXT, "Hello WebSocket", true, true); // for client
+WebSocket req_bin2 = WebSocket::make(WebSocket::OPCODE_BINARY, binary.data(), binary.size(), false, true); // for server
 
 // Sec-Accept-Key 구하기
 std::string sec_accept_key = WebSocket::sec_accept_key("oJ+k6v1xAAAEoKTq/XEAAA==" /*Sec-WebSocket-Key*/);
