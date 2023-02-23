@@ -65,14 +65,10 @@ WebSocket::make(const uint8_t   &op_code,
   else
   {
     web_socket.length_    =   127;
-    web_socket.buffer_[1] |=  (web_socket.length_);
+    web_socket.buffer_[1] |=  web_socket.length_;
 
     size_t pos = 2;
-    for (int index = 3; index >= 0; --index) // 4
-      web_socket.buffer_[pos++] = 0;
-
-    // write the actual 32bit payload_size in the next 4 bytes
-    for (int index = 3; index >= 0; --index) // 4
+    for (int index = 7; index >= 0; --index) // 4
       web_socket.buffer_[pos++] = ((payload_size >> 8 * index) & 0xFF);
   }
 
