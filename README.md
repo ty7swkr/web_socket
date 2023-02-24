@@ -1,10 +1,11 @@
-# WebSocket Parser Library
+# WebSocket Parser
 * linux에서만 테스트 했음.
 * c++17 사용함.
 
 이 소프트웨어 사용으로 발생하는 모든 청구, 손해 또는 기타 책임에 대해
 ty7swkr@gmail.com은 아무 책임을 지지 않습니다.
 
+사용법
 WebSocket 파싱
 ```
 std::vector<uint8_t> packet;
